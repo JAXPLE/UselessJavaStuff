@@ -1,6 +1,7 @@
 package uselessjava;
 
 import uselessjava.exception.RussianRouletteLostException;
+import uselessjava.exception.UException;
 
 import java.awt.*;
 import java.util.Random;
@@ -55,12 +56,12 @@ public interface UObject {
     }
 
     /**
-     * Throws a {@link RuntimeException soft runtime exception} and halts the current thread when thrown naked.
+     * Throws a {@link UException soft runtime exception} and halts the current thread when thrown naked.
      *
-     * @throws RuntimeException Always
+     * @throws UException Always
      */
-    default void throwRuntimeException() throws RuntimeException {
-        throw new RuntimeException("The developer has decided to throw a runtime exception.");
+    default void throwRuntimeException() throws UException {
+        throw new UException("The developer has decided to throw a runtime exception.");
     }
 
     /**
@@ -87,6 +88,6 @@ public interface UObject {
 
         if (safe) return;
 
-        throw new RuntimeException("The developer has decided to try their chances on a game of Russian Roulette. They have lost.");
+        throw new RussianRouletteLostException();
     }
 }
