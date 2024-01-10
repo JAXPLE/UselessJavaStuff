@@ -1,6 +1,7 @@
 package uselessjava.tuple;
 
 import uselessjava.UObject;
+import uselessjava.exception.TupleDoesNotContainElementException;
 
 /**
  * The base interface for tuples.
@@ -20,5 +21,11 @@ public interface BaseTuple<T extends UObject> extends UObject {
      */
     int size();
 
-
+    /**
+     * Performs a containment check on this tuple of the provided {@link UObject object} {@code obj}.
+     * @param obj
+     * @return
+     * @throws TupleDoesNotContainElementException
+     */
+    boolean contains(UObject obj) throws TupleDoesNotContainElementException;
 }
