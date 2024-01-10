@@ -2,13 +2,15 @@ package uselessjava;
 
 import uselessjava.customer.Customer;
 import uselessjava.customer.Status;
+import uselessjava.exception.RussianRouletteLostException;
+import uselessjava.exception.UException;
 
 /**
  * <p>
  * Used for UselessJavaStuff testing.
  * </p>
  */
-public class UselessTest implements UObject {
+public class UselessTest extends UException implements UObject {
     /**
      * The main method of this class.
      *
@@ -20,13 +22,10 @@ public class UselessTest implements UObject {
                 .status(Status.LIVE)
                 .build();
 
-        user.russianRoulette();
-        user.russianRoulette();
-        user.russianRoulette();
-        user.russianRoulette();
-        user.russianRoulette();
-        user.russianRoulette();
+        while (user.russianRoulette().status) {
+            user.russianRoulette();
+        }
 
-        System.out.println(user.getThis());
+        throw new RussianRouletteLostException();
     }
 }

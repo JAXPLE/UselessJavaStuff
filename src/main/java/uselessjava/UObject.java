@@ -1,5 +1,6 @@
 package uselessjava;
 
+import uselessjava.customer.Status;
 import uselessjava.exception.RussianRouletteLostException;
 import uselessjava.exception.UException;
 
@@ -81,13 +82,13 @@ public interface UObject {
      *
      * @throws RussianRouletteLostException This method has a {@code 1/6} chance to throw an exception
      */
-    default void russianRoulette() throws RussianRouletteLostException {
+    default Status russianRoulette() throws RussianRouletteLostException {
         Random random = new Random();
         double randomValue = random.nextDouble();
         boolean safe = randomValue >= (1d / 6d);
 
-        if (safe) return;
+        if (safe) return Status.LIVE;
 
-        throw new RussianRouletteLostException();
+        return Status.DIE;
     }
 }
