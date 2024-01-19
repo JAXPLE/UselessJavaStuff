@@ -20,9 +20,10 @@ public interface Tuple<T extends UObject> extends UObject, Serializable {
      * If the array contains an element whose value is {@code null}, this will return a {@link Tuple tuple} which
      * contains a {@code null} value; thus validating the postulate that this method's contract is pure,
      * within the context of the provided array of elements.
+     *
      * @param elements The array of elements of which to derive the {@link Tuple tuple} from
+     * @param <U>      The type of {@link UObject subclass} to designate as the generic type of the {@link Tuple tuple}
      * @return The newly constructed {@link Tuple tuple}
-     * @param <U> The type of {@link UObject subclass} to designate as the generic type of the {@link Tuple tuple}
      */
     @SafeVarargs
     static <U extends UObject> Tuple<U> of(U... elements) {

@@ -15,12 +15,17 @@ public class UselessTest implements UObject {
      * @param args The array of initial arguments
      */
     public static void main(String[] args) {
+
+        var c = new Customer("hello world");
+
         Tuple<Customer> customers = Tuple.of(
                 new Customer("hi mom"),
-                new Customer("hello world"),
+                c,
                 new Customer("jack")
         );
 
         System.out.println(customers);
+        System.out.println(customers.contains(c));
+        System.out.println(customers.contains(new Customer("dsd")));
     }
 }

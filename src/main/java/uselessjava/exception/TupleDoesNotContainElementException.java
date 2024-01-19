@@ -5,7 +5,7 @@ import uselessjava.tuple.Tuple;
 
 /**
  * <p>
- *     Thrown when a {@link Tuple#contains(UObject) tuple containment check} fails.
+ * Thrown when a {@link Tuple#contains(UObject) tuple containment check} fails.
  * </p>
  */
 public class TupleDoesNotContainElementException extends UException {

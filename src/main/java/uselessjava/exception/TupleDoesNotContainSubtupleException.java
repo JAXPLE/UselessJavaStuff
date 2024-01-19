@@ -1,11 +1,10 @@
 package uselessjava.exception;
 
-import uselessjava.UObject;
 import uselessjava.tuple.Tuple;
 
 /**
  * <p>
- *     Thrown when a {@link Tuple#containsAll(Tuple)} tuple containment check} fails.
+ * Thrown when a {@link Tuple#containsAll(Tuple)} tuple containment check} fails.
  * </p>
  */
 public class TupleDoesNotContainSubtupleException extends UException {
