@@ -12,4 +12,11 @@ public class Customer implements UObject {
     public String getUsername() {
         return username;
     }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "username='" + username + '\'' +
+                '}';
+    }
 }

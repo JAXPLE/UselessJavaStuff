@@ -1,6 +1,7 @@
 package uselessjava;
 
 import uselessjava.customer.Customer;
+import uselessjava.tuple.Tuple;
 
 /**
  * <p>
@@ -14,15 +15,12 @@ public class UselessTest implements UObject {
      * @param args The array of initial arguments
      */
     public static void main(String[] args) {
-        Customer user = new Customer("Jack");
+        Tuple<Customer> customers = Tuple.of(
+                new Customer("hi mom"),
+                new Customer("hello world"),
+                new Customer("jack")
+        );
 
-        user.russianRoulette();
-        user.russianRoulette();
-        user.russianRoulette();
-        user.russianRoulette();
-        user.russianRoulette();
-        user.russianRoulette();
-
-        System.out.println(user.getUsername());
+        System.out.println(customers);
     }
 }

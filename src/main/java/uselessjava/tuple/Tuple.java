@@ -5,6 +5,7 @@ import uselessjava.exception.TupleDoesNotContainElementException;
 import uselessjava.exception.TupleDoesNotContainSubtupleException;
 import uselessjava.exception.TupleIndexOutOfBoundsException;
 
+import java.io.Serializable;
 import java.util.stream.Stream;
 
 /**
@@ -12,7 +13,22 @@ import java.util.stream.Stream;
  *
  * @param <T> The type of element of which to contain
  */
-public interface Tuple<T extends UObject> extends UObject {
+public interface Tuple<T extends UObject> extends UObject, Serializable {
+    /**
+     * Given the provided array of elements-which are all subclasses of {@link UObject UObject}, this method
+     * will generate a new {@link Tuple tuple} containing the provided elements, in their unchanged order.
+     * If the array contains an element whose value is {@code null}, this will return a {@link Tuple tuple} which
+     * contains a {@code null} value; thus validating the postulate that this method's contract is pure,
+     * within the context of the provided array of elements.
+     * @param elements The array of elements of which to derive the {@link Tuple tuple} from
+     * @return The newly constructed {@link Tuple tuple}
+     * @param <U> The type of {@link UObject subclass} to designate as the generic type of the {@link Tuple tuple}
+     */
+    @SafeVarargs
+    static <U extends UObject> Tuple<U> of(U... elements) {
+        return new ArrayTuple<>(elements);
+    }
+
     /**
      * Returns the size of this tuple. The size of a tuple is determined by the number of elements contained
      * within this tuple. If this tuple allows the containment of {@code null} values, each {@code null} value
