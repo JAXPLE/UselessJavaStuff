@@ -1,11 +1,11 @@
 package uselessjava.exception;
 
 import uselessjava.UObject;
-import uselessjava.tuple.BaseTuple;
+import uselessjava.tuple.Tuple;
 
 /**
  * <p>
- *     Thrown when a {@link BaseTuple#contains(UObject) tuple containment check} fails.
+ *     Thrown when a {@link Tuple#contains(UObject) tuple containment check} fails.
  * </p>
  */
 public class TupleDoesNotContainElementException extends UException {

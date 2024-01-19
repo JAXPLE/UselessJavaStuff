@@ -8,7 +8,7 @@ import uselessjava.exception.TupleDoesNotContainElementException;
  *
  * @param <T> The type of element of which to contain
  */
-public interface BaseTuple<T extends UObject> extends UObject {
+public interface Tuple<T extends UObject> extends UObject {
     /**
      * Returns the size of this tuple. The size of a tuple is determined by the number of elements contained
      * within this tuple. If this tuple allows the containment of {@code null} values, each {@code null} value
